@@ -1,0 +1,34 @@
+name: Daily Useless Commit
+
+on:
+  schedule:
+    # Run the workflow once a day at midnight UTC
+    - cron: "0 0 * * *"
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Make a trivial change
+      - name: Make a meaningless change
+        run: |
+          echo "Last updated: $(date)" >> useless.txt
+
+      # Step 3: Configure git
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "bot@example.com"
+
+      # Step 4: Commit and push the change
+      - name: Commit and push changes
+        run: |
+          git add useless.txt
+          git commit -m "Useless commit: $(date)"
+          git push
+
