@@ -3,7 +3,7 @@ name: Daily Useless Commit
 on:
   schedule:
     # Run the workflow once a day at midnight UTC
-    - cron: "0 0 * * *"
+    - cron: ""0 * * * *
 
 jobs:
   commit:
@@ -12,7 +12,9 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.TOKEN }}
 
       # Step 2: Make a trivial change
       - name: Make a meaningless change
