@@ -3,7 +3,7 @@ name: Hourly Useless Commit
 on:
   schedule:
     # Run the workflow every hour
-    - cron: "*/5 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   commit:
