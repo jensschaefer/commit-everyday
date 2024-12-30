@@ -3,7 +3,7 @@ name: Daily Useless Commit
 on:
   schedule:
     # Run the workflow once a day at midnight UTC
-    - cron: ""0 * * * *
+    - cron: "0 * * * *"
 
 jobs:
   commit:
