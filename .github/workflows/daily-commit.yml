@@ -11,10 +11,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Make a meaningless change
-        run: |
-          echo "Last updated: $(date)" > useless.txt
-
       - name: Configure git
         run: |
           git config user.name "Jens Schäfer"
@@ -26,6 +22,7 @@ jobs:
         run: |
           for i in {1..5}; do
             echo "Making commit #$i"
+            echo "Last updated: $(date)" > useless.txt
             git add useless.txt
             git commit -m "Useless commit #$i: $(date)"
             git push
